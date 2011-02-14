@@ -1,0 +1,7 @@
+%h1.sub_heading New Category
+
+- form_for @checkpoint do |form|
+  = form.error_messages
+  = render :partial => 'form', :locals => { :form => form }
+  %p
+    = form.submit 'Add Checkpoint'

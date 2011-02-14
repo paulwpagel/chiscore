@@ -1,0 +1,12 @@
+%table
+  %tr
+    %td Location: 
+    %td= @checkpoint.location
+  %tr
+    %td Point Person: 
+    %td= @checkpoint.point_person
+
+%br
+
+= link_to 'Edit', edit_checkpoint_path(@checkpoint)
+= link_to 'All', checkpoints_path

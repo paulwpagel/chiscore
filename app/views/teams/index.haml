@@ -1,0 +1,17 @@
+%h1.sub_heading Teams
+
+%p
+  = link_to 'Add Team', new_team_path
+
+%table{:border => 0, :cellpadding => 0, :cellspacing => 0, :class => "listing"}
+  %tr
+    %th Name
+    %th Number
+    %th.actions{ :colspan => "3" }
+  -@teams.each do |team|
+    %tr{:class => cycle("even", "odd")}
+      %td= team.name
+      %td= team.number
+      %td.actions= link_to 'Show', team_path(team)
+      %td.actions= link_to 'Edit', edit_team_path(team)
+      %td.actions= link_to 'Delete', team_path(team), :confirm => 'Are you sure?', :method => :delete

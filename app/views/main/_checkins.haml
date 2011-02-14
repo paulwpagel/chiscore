@@ -1,0 +1,16 @@
+.checkins
+  - if checkins.empty?
+    None
+  - else
+    %table.checkins
+      %tr
+        %th Number
+        %th Team
+        %th= title
+        %th
+      - checkins.each do |checkin|
+        %tr
+          %td= checkin.team.number
+          %td= checkin.team.name
+          %td= checkin.time_left
+          %td.actions= link_to 'Delete', team_checkin_path(checkin), :confirm => 'Are you sure?', :method => :delete

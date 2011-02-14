@@ -1,0 +1,7 @@
+- if session[:current_checkpoint_id]
+  %b= Checkpoint.find(session[:current_checkpoint_id]).location
+  =link_to "change", change_checkpoint_path
+-else
+  = form_tag({:controller => :main, :action => :set_checkpoint}) do
+    = select_tag "checkpoint_id", options_from_collection_for_select(@checkpoints, :id, :location)
+    = submit_tag "Set Checkpoint"

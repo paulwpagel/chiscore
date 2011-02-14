@@ -1,0 +1,194 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+th {
+    text-align: left;
+}
+
+th.actions {
+    text-align: center;
+}
+
+
+.listing {
+    width: 100%;
+}
+
+.listing th,
+.listing td {
+    padding: 5px;
+}
+
+.listing th {
+    text-align: left;
+    background-color: #83abaf;
+    color: white;
+}
+
+.even {
+    background-color: #eeeeee;
+}
+.odd {
+    background-color: white;
+}
+
+div#nav_container {
+  width: 1024px;
+  margin: 0px;
+  padding: 0px;
+  background-color: #0a386e;
+  height: 40px; 
+
+}
+
+
+ul#nav {
+  margin: 0px;
+  padding: 0px;
+  background-color: #0a386e;
+  height: 40px; 
+}
+
+ul#nav a {
+	color: #FCFCFC;
+	text-decoration: none; 
+}
+    
+ul#nav a:hover {
+	text-decoration: underline; 
+}
+  
+ul#nav li {
+	float: left;
+	height: 25px;
+	text-align: center;
+	padding-top: 15px;
+	min-width: 120px;
+	background-color: #0a386e;
+	color: #FCFCFC;
+	list-style: inside url("../images/button.png"); 
+}
+
+ul#nav li:hover {
+	background-color: #105cb4; 
+}
+
+#selection {
+	margin: 10px 0px;
+}
+
+#checkin {
+	margin: 20px 0px;
+}
+
+table.checkins {
+  text-align: center;
+  border-spacing: 0px;
+  border: 1px solid #595959;
+  border-bottom: 0px;
+  min-width: 600px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+table.checkins th {
+	text-align: center;
+	background-color: #0a386e;
+	color: #fcfcfc;
+	font-size: 1.1em; }
+
+table.checkins tr {
+	height: 2em; }
+  
+table.checkins tr:hover {
+	background-color: #b0b0b0; }
+
+table.checkins td {
+	width: 100px;
+	border-bottom: solid 1px #595959; 
+}
+
+table.checkins .name {
+	width: 250px;
+	text-align: left;
+	padding-left: 4px; 
+	overflow: hidden;}
+
+table.checkins .label {
+	width: 5px;}
+
+table.checkins .action {
+	width: 150px; }
+	
+table.checkins .end {
+	width: 75px;}
+
+table.checkins .num {
+	width: 50px;
+	text-align: center;}
+
+table.checkins .description {
+   width: 600px; }
+
+table.checkins .total {
+	background-color: #595959;
+	color: #FCFCFC; }
+
+table.checkins .total:hover {
+	background-color: #595959; }
+
+

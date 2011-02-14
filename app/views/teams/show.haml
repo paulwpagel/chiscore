@@ -1,0 +1,11 @@
+%table
+  %tr
+    %td Name: 
+    %td= @team.name
+  %tr
+    %td Number: 
+    %td= @team.number
+
+%br
+= link_to 'Edit', edit_team_path(@team)
+= link_to 'All', teams_path

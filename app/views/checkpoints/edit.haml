@@ -1,0 +1,10 @@
+%h1.sub_heading Edit Checkpoint
+
+-form_for @checkpoint do |f|
+  = f.error_messages
+  = render :partial => "form", :locals => {:form => f}
+
+  %p
+    = f.submit 'Update'
+
+= link_to 'Show', checkpoint_path(@checkpoint)
