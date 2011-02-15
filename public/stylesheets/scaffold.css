@@ -63,9 +63,26 @@ th.actions {
 .odd {
     background-color: white;
 }
+.header-content {
+	text-align: center;
+	height: 50px;
+}
+.header-text {
+	display:inline;
+}
+
+div.flag-top {
+  width: 1000px;
+  margin: 0px;
+  padding: 0px;
+	margin-bottom:20px;
+  background-color: #a4d6ef;
+  height: 40px; 
+}
 
 div#nav_container {
   width: 1000px;
+	margin-top: 20px;
   margin: 0px;
   padding: 0px;
   background-color: #a4d6ef;
@@ -89,7 +106,7 @@ div#nav_container {
 
 ul#nav {
 	position: absolute;
-	left: 500px;
+	left: 540px;
 	display: inline;
   margin: 0px;
   padding: 0px;
@@ -143,7 +160,7 @@ table.checkins {
 table.checkins th {
 	text-align: center;
 	background-color: #a4d6ef;
-	color: #fcfcfc;
+	color: #105cb4;
 	font-size: 1.1em; }
 
 table.checkins tr {
