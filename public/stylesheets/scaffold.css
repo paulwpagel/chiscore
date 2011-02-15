@@ -11,10 +11,9 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
-
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a {color: #000;}
+a:visited { color: #000;}
+a:hover { color: #000; }
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -25,34 +24,7 @@ div.field, div.actions {
 }
 
 .field_with_errors {
-  padding: 2px;
   background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
 }
 
 th {
@@ -75,8 +47,14 @@ th.actions {
 
 .listing th {
     text-align: left;
-    background-color: #83abaf;
-    color: white;
+    background-color: #a4d6ef;
+    color: #105cb4;
+}
+
+#container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .even {
@@ -85,46 +63,80 @@ th.actions {
 .odd {
     background-color: white;
 }
+.header-content {
+	text-align: center;
+	height: 50px;
+}
+.header-text {
+	display:inline;
+}
 
-div#nav_container {
-  width: 1024px;
+div.flag-top {
+  width: 1000px;
   margin: 0px;
   padding: 0px;
-  background-color: #0a386e;
+	margin-bottom:20px;
+  background-color: #a4d6ef;
   height: 40px; 
+}
 
+div#nav_container {
+  width: 1000px;
+	margin-top: 20px;
+  margin: 0px;
+  padding: 0px;
+  background-color: #a4d6ef;
+  height: 40px; 
+}
+
+.image-left {
+	display: inline;
+	height: 40px;
+	float: left;
+	padding-left: 20px;
+}
+
+.image-right {
+	display: inline;
+	height: 40px;
+	float: right;
+	padding-right: 20px;
 }
 
 
 ul#nav {
+	position: absolute;
+	left: 540px;
+	display: inline;
   margin: 0px;
   padding: 0px;
-  background-color: #0a386e;
+  background-color: #a4d6ef;
   height: 40px; 
 }
 
 ul#nav a {
-	color: #FCFCFC;
+	color: #105cb4;
 	text-decoration: none; 
-}
-    
-ul#nav a:hover {
-	text-decoration: underline; 
 }
   
 ul#nav li {
 	float: left;
-	height: 25px;
+	height: 30px;
+	width: 100px;
 	text-align: center;
-	padding-top: 15px;
-	min-width: 120px;
-	background-color: #0a386e;
+	padding-top: 10px;
+	background-color: #a4d6ef;
 	color: #FCFCFC;
-	list-style: inside url("../images/button.png"); 
+	list-style: none; 
 }
 
 ul#nav li:hover {
-	background-color: #105cb4; 
+	background-color: #105cb4;
+	text-decoration: underline;
+}
+ul#nav li:hover a {
+	color: #FFF;
+	text-decoration: underline;
 }
 
 #selection {
@@ -147,8 +159,8 @@ table.checkins {
 
 table.checkins th {
 	text-align: center;
-	background-color: #0a386e;
-	color: #fcfcfc;
+	background-color: #a4d6ef;
+	color: #105cb4;
 	font-size: 1.1em; }
 
 table.checkins tr {
