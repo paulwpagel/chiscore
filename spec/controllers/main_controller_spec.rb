@@ -41,4 +41,5 @@ describe MainController do
     checkin.team.should == @team
     checkin.checkpoint.should == @checkpoint
   end
+  
 end

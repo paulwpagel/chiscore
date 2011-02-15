@@ -1,11 +1,8 @@
 %h2 Actives
-#active_checkins
-  = render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.active(session[:current_checkpoint_id]), :title => "Time to checkout"}
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.active(session[:current_checkpoint_id]), :title => "Time to checkout"}
     
 %h2 Warning
-#warning_checkins
-  = render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.warning(session[:current_checkpoint_id]), :title => "Time to checkout"}  
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.warning(session[:current_checkpoint_id]), :title => "Time to checkout"}  
   
 %h2 Expired
-#expired_checkins
-  = render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.expired(session[:current_checkpoint_id]), :title => "Time expired"}
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.expired(session[:current_checkpoint_id]), :title => "Time expired"}

@@ -32,6 +32,10 @@ class MainController < ApplicationController
     render :partial => "main/checkins"
   end
   
+  def reload_checkins
+    render :partial => 'main/checkin_lists'
+  end
+  
   private
     
     def load_checkins

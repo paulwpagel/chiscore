@@ -7,6 +7,7 @@ Chiscore::Application.routes.draw do
   match "main/change_checkpoint" => "main#change_checkpoint", :as => "change_checkpoint"
   match "main/checkin" => "main#checkin", :as => "checkin"
   match "main/checkins" => "main#checkins", :as => "checkins"
+  match "main/reload_checkins" => "main#reload_checkins"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

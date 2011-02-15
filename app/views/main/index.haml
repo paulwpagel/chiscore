@@ -5,4 +5,15 @@
 #checkin
   =render :partial => "main/checkin"
 
-=render :partial => 'main/checkin_lists'
+  = content_for :javascript do
+    :javascript
+
+      $(document).ready(function(){
+        setInterval(function(){    
+          $('#checkin_lists').load('/main/reload_checkins');
+          }, 3000);
+
+        });
+
+#checkin_lists        
+  = render :partial => 'main/checkin_lists'
