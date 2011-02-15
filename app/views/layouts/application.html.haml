@@ -11,10 +11,13 @@
 		#container
 			#header
 			#nav_container
+				/ =image_tag("chi-star.gif", :class => 'image-left')				
 				%ul#nav
 					%li= link_to 'home', root_path				
 					%li= link_to 'teams', teams_path
-					%li= link_to 'checkpoints', checkpoints_path					
+					%li= link_to 'checkpoints', checkpoints_path
+				/ =image_tag("chi-star.gif", :class => 'image-right')				
+				
 			.main
 				.content
 					= yield
