@@ -1,0 +1,119 @@
+%h1 Yellow
+%table{:class => "yellow", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Cobra
+    %th Happy Village
+    %th Flat Iron
+    %th Phyliss's
+    %th Five Star
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+      
+    
+%h1 Gray
+%table{:class => "gray", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Phyliss's
+    %th Darkroom
+    %th Five Star
+    %th Cobra
+    %th Twisted Spoke
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+
+%h1 Red
+%table{:class => "red", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Five Star
+    %th Nick's 
+    %th Club Lucky
+    %th Flat Iron
+    %th Happy Village
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+
+
+%h1 Blue
+%table{:class => "blue", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Mahoneys
+    %th Happy Village
+    %th Darkroom
+    %th Five Star
+    %th Twisted Spoke
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+
+%h1 Green
+%table{:class => "green", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Club Lucky
+    %th Cobra
+    %th Darkroom
+    %th Five Star
+    %th Flat Iron
+    %th Happy Village
+    %th Innertown
+    %th Mahoneys
+    %th Nick's 
+    %th Phyliss's
+    %th Twisted Spoke
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+
+%h1 Light Blue
+%table{:class => "light_blue", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Twisted Spoke
+    %th Mahoneys
+    %th Nick's 
+    %th Happy Village
+    %th Five Star
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name
+
+%h1 White
+%table{:class => "white", :width => "100%"}
+  %tr
+    %th Name
+    %th Start
+    %th Five Star
+    %th Phyliss's
+    %th Nick's 
+    %th Twisted Spoke
+    %th Cobra
+    %th Finish Line
+    %th Total
+  - Team.find_each do |team|
+    %tr
+      %td=team.name

@@ -5,6 +5,9 @@
   %tr
     %td Number: 
     %td= @team.number
+  %tr
+    %td Route:
+    %td= @team.route.try(:capitalize).try(:gsub, /_/, " ")
 
 %br
 = link_to 'Edit', edit_team_path(@team)
