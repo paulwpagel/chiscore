@@ -1,14 +1,14 @@
 - ["yellow", "gray", "red", "blue", "green", "light_blue", "white"].each do |route|
   %h1=route.try(:capitalize).try(:gsub, /_/, " ")
-  %table{:class => route, :width => "100%"}
+  %table{:class => "time", :width => "100%"}
     %tr
-      %th Name
+      %th.team Name
       - Routes.send(route).each do |location|
-        %th=location
-      %th Total
+        %th.location=location
+      %th.total Total
     - Team.find(:all, :conditions => {:route => route}).each do |team|
       %tr
-        %td=team.name
+        %td.name=team.name
         - Routes.send(route).each do |location|
-          %td=team.checkin_time_for(location)        
-        %td=in_minutes(team.total_time)
+          %td.location=team.checkin_time_for(location)        
+        %td.total=in_minutes(team.total_time)

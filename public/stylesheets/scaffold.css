@@ -203,4 +203,34 @@ table.checkins .total {
 table.checkins .total:hover {
 	background-color: #595959; }
 
+td.team, th.team {
+	width: 175px;
+}
+
+td.location, th.location {
+	width: 100px;
+}
+
+td.total {
+	font-weight: bold;
+}
+
+table.time {
+	border-collapse: 0px;
+	border-spacing: 0px;
+	border:solid #000;
+	border-width: 1px 1px 0px 0px; 
+	
+}
+
+table.time th, table.time td {
+	text-align: center;
+	border: solid #000;
+	border-width: 0px 0px 1px 1px;
+	padding: 3px;
+}
+table.time th {
+	background-color: #a4d6ef;
+	color: #105cb4;
+}
 
