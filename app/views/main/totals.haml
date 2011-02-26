@@ -11,3 +11,4 @@
         %td=team.name
         - Routes.send(route).each do |location|
           %td=team.checkin_time_for(location)        
+        %td=in_minutes(team.total_time)
