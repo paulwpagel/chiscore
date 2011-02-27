@@ -36,6 +36,5 @@ describe Team do
     @team.team_checkins.last.update_attribute(:created_at, Time.now + 15.minutes)
     @team.should be_complete
     @team.total_time.should be_within(1).of(@team.team_checkins.last.created_at - @team.team_checkins.first.created_at)
-    
   end
 end

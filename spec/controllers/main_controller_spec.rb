@@ -42,4 +42,14 @@ describe MainController do
     checkin.checkpoint.should == @checkpoint
   end
   
+  it "starts the race" do
+    @team = Team.create!(:name => "action squad")
+    Checkpoint.create!(:location => "Start")
+
+    get :start_race
+
+    @team.reload
+    @team.team_checkins.first.should_not be_nil
+  end
+  
 end

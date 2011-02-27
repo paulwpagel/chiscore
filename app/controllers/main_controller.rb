@@ -36,6 +36,14 @@ class MainController < ApplicationController
     render :partial => 'main/checkin_lists'
   end
   
+  def start_race
+    Team.find_each do |team|
+      start = Checkpoint.find_by_location("Start")
+      TeamCheckin.create!(:team => team, :checkpoint => start)
+    end
+    redirect_to :totals
+  end
+  
   private
     
     def load_checkins
