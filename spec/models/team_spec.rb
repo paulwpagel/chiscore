@@ -4,11 +4,13 @@ describe Team do
   before(:each) do
     Team.destroy_all and Checkpoint.destroy_all and TeamCheckin.destroy_all
     @team = Team.create!(:name => "team", :route => "yellow")
-    @checkpoint = Checkpoint.create!(:location => "Start")  
+    @checkpoint = Checkpoint.create!(:location => "Start")
+    @checkpoint2 = Checkpoint.create!(:location => "Finish")
   end
+
   it "has checkins" do
-    checkin1 = TeamCheckin.create!(:team => @team)
-    checkin2 = TeamCheckin.create!(:team => @team)
+    checkin1 = TeamCheckin.create!(:team => @team, :checkpoint => @checkpoint)
+    checkin2 = TeamCheckin.create!(:team => @team, :checkpoint => @checkpoint2)
     @team.team_checkins.should include(checkin1) 
     @team.team_checkins.should include(checkin2) 
   end

@@ -5,6 +5,8 @@ class TeamCheckin < ActiveRecord::Base
   include TimeHelper
   belongs_to :team
   belongs_to :checkpoint
+  
+  validates_uniqueness_of :team_id, :scope => :checkpoint_id
 
   named_scope :expired, lambda { |checkpoint_id|
     { :conditions => ["checkpoint_id = ? AND created_at <= ? ", checkpoint_id, (Time.now - 20.minutes)] }

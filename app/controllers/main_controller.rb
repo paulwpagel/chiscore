@@ -21,9 +21,14 @@ class MainController < ApplicationController
   
   def checkin
     @team = Team.find_by_number(params[:team_number])
-    TeamCheckin.create!(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id)
+    checkin = TeamCheckin.new(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id)
     respond_to do |format|
-      format.html {redirect_to(:controller => :main, :action => :index)}
+      if checkin.save
+        format.html {redirect_to(:controller => :main, :action => :index)}
+      else
+        flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) has already checked in."
+        format.html {redirect_to(:controller => :main, :action => :index )}
+      end
     end    
   end
   
