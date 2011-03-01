@@ -9,7 +9,7 @@ class TeamCheckin < ActiveRecord::Base
   validates_uniqueness_of :team_id, :scope => :checkpoint_id
 
   named_scope :expired, lambda { |checkpoint_id|
-    { :conditions => ["(checkpoint_id = ? AND created_at <= ?) OR checkout IS NOT NULL ", checkpoint_id, (Time.now - 20.minutes)] }
+    { :conditions => ["checkpoint_id = ? AND (created_at <= ? OR checkout IS NOT NULL)", checkpoint_id, (Time.now - 20.minutes)] }
   }
   
   named_scope :warning, lambda { |checkpoint_id|
