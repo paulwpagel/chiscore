@@ -3,6 +3,7 @@ Chiscore::Application.routes.draw do
   resources :teams
   resources :team_checkins
   
+  match "main/checkout/:team_checkin_id" => "main#checkout", :as => "checkout"
   match "main/set_checkpoint" => "main#set_checkpoint"
   match "main/change_checkpoint" => "main#change_checkpoint", :as => "change_checkpoint"
   match "main/checkin" => "main#checkin", :as => "checkin"

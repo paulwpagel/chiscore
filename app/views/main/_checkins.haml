@@ -8,9 +8,14 @@
         %th Team
         %th= title
         %th
+        %th
       - checkins.each do |checkin|
         %tr
           %td= checkin.team.number
           %td= checkin.team.name
           %td= checkin.time_left
-          %td.actions= link_to 'Delete', team_checkin_path(checkin), :confirm => 'Are you sure?', :method => :delete
+          - if checkin.checkout.nil?
+            %td.actions= link_to 'checkout', checkout_path(checkin) 
+          -else
+            %td.actions
+          %td.actions= link_to 'delete', team_checkin_path(checkin), :confirm => 'Are you sure?', :method => :delete

@@ -52,4 +52,14 @@ describe MainController do
     @team.team_checkins.first.should_not be_nil
   end
   
+  it "checkout time" do
+    @team = Team.create!(:name => "action squad")
+    checkpoint = Checkpoint.create!(:location => "Start")
+    checkin = TeamCheckin.create!(:team => @team, :checkpoint => checkpoint) 
+    get :checkout , :team_checkin_id => checkin.id
+    
+    checkin.reload
+    checkin.checkout.should_not be_nil
+  end
+  
 end

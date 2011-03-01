@@ -41,6 +41,14 @@ class MainController < ApplicationController
     render :partial => 'main/checkin_lists'
   end
   
+  def checkout
+    checkin = TeamCheckin.find(params[:team_checkin_id])
+    checkin.update_attribute(:checkout, Time.now) 
+    respond_to do |format|
+      format.html {redirect_to(:controller => :main, :action => :index)}
+    end
+  end
+  
   def start_race
     Team.find_each do |team|
       start = Checkpoint.find_by_location("Start")
