@@ -2,10 +2,6 @@ class Team < ActiveRecord::Base
   include TimeHelper
   has_many :team_checkins
   
-  def self.create_all
-    create_teams
-  end
-  
   def checkin_time_for(location)
     checkin_for(location).try(:created_at).try(:strftime, "%H:%M:%S")
   end
@@ -23,6 +19,13 @@ class Team < ActiveRecord::Base
     return true
   end
   
+  def checked_in?
+    self.team_checkins.each do |checkin|
+      return true if checkin.created_at > (Time.now - 20.minutes)
+    end
+    return false
+  end
+  
   private 
     def checkin_for(location)
       checkpoint = Checkpoint.find_by_location(location)
@@ -30,9 +33,4 @@ class Team < ActiveRecord::Base
       return self.team_checkins.find_by_checkpoint_id(checkpoint.id)
     end
     
-    
-    def create_teams
-      
-    end
-  
 end

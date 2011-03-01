@@ -39,4 +39,14 @@ describe Team do
     @team.should be_complete
     @team.total_time.should be_within(1).of(@team.team_checkins.last.created_at - @team.team_checkins.first.created_at)
   end
+  
+  it "is checked in" do
+    TeamCheckin.create(:team => @team, :checkpoint => @checkpoint)
+    @team.should be_checked_in
+  end
+  
+  it "is checked in" do
+    TeamCheckin.create(:team => @team, :checkpoint => @checkpoint, :created_at => (Time.now - 20.minutes))
+    @team.should_not be_checked_in
+  end
 end
