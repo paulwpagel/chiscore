@@ -28,4 +28,8 @@ module Routes
     return ["Start",	"Five Star",	"Phyllis's",	"Nick's",	"Twisted Spoke",	"Cobra",	"Finish"]
   end
   
+  def self.pink
+    return ["Start",	"Darkroom",	"Flat Iron",	"Club Lucky","Phyllis's","Mahoney's"	,	"Finish"]
+  end
+  
 end
