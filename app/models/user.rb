@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   belongs_to :checkpoint
+  attr_accessor :password, :password_confirmation 
+  
   
   def self.create_all
     User.destroy_all
