@@ -6,7 +6,7 @@ class MainController < ApplicationController
     @checkpoints = Checkpoint.all if current_user.admin?
     unless current_user.admin?
       @checkpoints = [current_user.checkpoint]
-      session[:current_checkpoint_id] = current_user.checkpoint
+      session[:current_checkpoint_id] = current_user.checkpoint.id
     end
     @team_checkin = TeamCheckin.new
   end
