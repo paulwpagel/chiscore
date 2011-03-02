@@ -8,7 +8,8 @@ I want to add a checkpoint
     Given there are no checkpoints
   
   Scenario: Adding a checkpoint
-    Given I am on the new checkpoint page
+    Given I am logged in as an admin 
+    And I am on the new checkpoint page
     When I fill in "Point person" with "Marion Morrison"
     And I fill in "Location" with "Flat Iron"
     And I press "Add Checkpoint"
