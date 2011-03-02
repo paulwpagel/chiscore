@@ -1,7 +1,14 @@
 Chiscore::Application.routes.draw do
+  get "user_sessions/new"
+
   resources :checkpoints
   resources :teams
   resources :team_checkins
+  resources :user_sessions
+
+  match 'login' => "user_sessions#new",      :as => :login
+  match 'logout' => "user_sessions#destroy", :as => :logout
+  
   
   match "main/checkout/:team_checkin_id" => "main#checkout", :as => "checkout"
   match "main/set_checkpoint" => "main#set_checkpoint"

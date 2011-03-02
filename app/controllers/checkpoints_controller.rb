@@ -1,4 +1,6 @@
 class CheckpointsController < ApplicationController
+  
+  before_filter :require_user
   # GET /checkpoints
   # GET /checkpoints.xml
   def index

@@ -1,5 +1,6 @@
 class TeamCheckinsController < ApplicationController
-
+  before_filter :require_user
+  
   def destroy
     @team_checkin = TeamCheckin.find(params[:id])
     @team_checkin.destroy

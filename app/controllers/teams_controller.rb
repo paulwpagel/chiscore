@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  # GET /teams
+  before_filter :require_user
   # GET /teams.xml
   def index
     @teams = Team.all

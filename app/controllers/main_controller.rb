@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   before_filter :load_checkins
+  before_filter :require_user
   def index
     @checkpoints = Checkpoint.all
     @team_checkin = TeamCheckin.new
