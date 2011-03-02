@@ -45,8 +45,13 @@ describe Team do
     @team.should be_checked_in
   end
   
-  it "is checked in" do
+  it "is not checked in" do
     TeamCheckin.create(:team => @team, :checkpoint => @checkpoint, :created_at => (Time.now - 20.minutes))
+    @team.should_not be_checked_in
+  end
+  
+  it "is not checked in if it was checked out" do
+    TeamCheckin.create(:team => @team, :checkpoint => @checkpoint, :checkout => Time.now)
     @team.should_not be_checked_in
   end
 end

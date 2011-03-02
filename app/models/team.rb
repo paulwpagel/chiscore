@@ -21,7 +21,7 @@ class Team < ActiveRecord::Base
   
   def checked_in?
     self.team_checkins.each do |checkin|
-      return true if checkin.created_at > (Time.now - 20.minutes)
+      return true if (checkin.created_at > (Time.now - 20.minutes) && checkin.checkout.nil?)
     end
     return false
   end

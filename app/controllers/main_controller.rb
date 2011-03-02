@@ -21,9 +21,11 @@ class MainController < ApplicationController
   
   def checkin
     @team = Team.find_by_number(params[:team_number])
-    checkin = TeamCheckin.new(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id)
+    checkin = TeamCheckin.new(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id) if @team
     respond_to do |format|
-      if @team.checked_in?
+      if @team.nil?
+        flash[:notice] = "Team #{params[:team_number]} does not exist.  Read better."
+      elsif @team.checked_in?
         flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) is checked in at another checkpoint within the last twenty minutes.  Wait and try again."
       elsif checkin.save
         #do nothing
