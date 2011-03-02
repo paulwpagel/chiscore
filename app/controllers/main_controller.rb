@@ -20,18 +20,24 @@ class MainController < ApplicationController
   end
   
   def checkin
-    @team = Team.find_by_number(params[:team_number])
-    checkin = TeamCheckin.new(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id) if @team
-    respond_to do |format|
-      if @team.nil?
-        flash[:notice] = "Team #{params[:team_number]} does not exist.  Read better."
-      elsif @team.checked_in?
-        flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) is checked in at another checkpoint within the last twenty minutes.  Wait and try again."
-      elsif checkin.save
-        #do nothing
+    if @team = Team.find_by_number(params[:team_number])
+      if TeamCheckin.find(:first, :conditions => {:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id})    
+        flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) already checked in here."
       else
-        flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) has already checked in."
+        checkin = TeamCheckin.new(:checkpoint_id => session[:current_checkpoint_id], :team_id => @team.id)
+        if @team.checked_in?
+          flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) is checked in at another checkpoint within the last twenty minutes.  Wait and try again."
+        elsif checkin.save
+          #do nothing
+        else
+          flash[:notice] = "Team #{params[:team_number]}(#{@team.name}) has already checked in."
+        end
       end
+    else
+      flash[:notice] = "Team #{params[:team_number]} does not exist.  Read better."
+    end
+    
+    respond_to do |format|
       format.html {redirect_to(:controller => :main, :action => :index )}
     end    
   end
