@@ -1,7 +1,7 @@
 
 #selection
-  / =render :partial => "main/checkpoint_selection"
-  %b= current_user.checkpoint.location
+  =render :partial => "main/checkpoint_selection" if current_user.admin?
+  %b= current_user.checkpoint.location unless current_user.admin?
 %hr
 
 #checkin
