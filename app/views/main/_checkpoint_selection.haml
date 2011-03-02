@@ -1,5 +1,5 @@
 - if session[:current_checkpoint_id]
-  %b= Checkpoint.find(session[:current_checkpoint_id]).location
+  %b= current_user.checkpoint.location  
   =link_to "change", change_checkpoint_path
 -else
   = form_tag({:controller => :main, :action => :set_checkpoint}) do

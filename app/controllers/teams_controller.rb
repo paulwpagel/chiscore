@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_admin, :except => [:index]
   # GET /teams.xml
   def index
     @teams = Team.all

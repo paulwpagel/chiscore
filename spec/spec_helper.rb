@@ -2,10 +2,26 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'authlogic/test_case'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+include Authlogic::TestCase
+
+def login_user(user = User.create!(:login => "briman", :password => "password", :password_confirmation => "password"))
+  activate_authlogic
+  UserSession.create(:login => user.login, :password => "password")
+  return user
+end
+
+def login_admin
+  user = User.create!(:login => "admin", :password => "password", :password_confirmation => "password")
+  activate_authlogic
+  UserSession.create(:login => user.login, :password => "password")
+end
 
 RSpec.configure do |config|
   # == Mock Framework

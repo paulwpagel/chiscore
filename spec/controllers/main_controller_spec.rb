@@ -1,20 +1,21 @@
 require 'spec_helper'
 
 describe MainController do
-  
   before(:each) do
     Checkpoint.destroy_all
     TeamCheckin.destroy_all
     Team.destroy_all
+    User.destroy_all
     @checkpoint = Checkpoint.create!(:location => "Flat Iron")
+    @user = User.create!(:login => "Flat Iron", :password => "password", :password_confirmation => "password", :checkpoint_id => @checkpoint.id)
+    login_user(@user)
     @team = Team.create!(:name => "asdf", :number => "34")
     session[:current_checkpoint_id] = @checkpoint.id
   end
   
-  it "loads all checkpoints" do
+  it "loads user checkpoint" do
     get :index
-    
-    assigns[:checkpoints].should == [@checkpoint]
+    assigns[:checkpoints].should == [@user.checkpoint]
   end
   
   it "sets current checkpoint to null" do

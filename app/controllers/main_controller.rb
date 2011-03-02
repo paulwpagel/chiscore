@@ -1,8 +1,13 @@
 class MainController < ApplicationController
   before_filter :load_checkins
   before_filter :require_user
+
   def index
-    @checkpoints = Checkpoint.all
+    @checkpoints = Checkpoint.all if current_user.admin?
+    unless current_user.admin?
+      @checkpoints = [current_user.checkpoint]
+      session[:current_checkpoint_id] = current_user.checkpoint
+    end
     @team_checkin = TeamCheckin.new
   end
   

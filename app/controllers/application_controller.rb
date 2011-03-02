@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :require_admin
 
   private
     def current_user_session
@@ -25,7 +25,14 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-
+    
+    def require_admin
+      unless current_user.admin?
+        flash[:notice] = "You must be an administrator to access this page."
+        redirect_to root_url
+      end
+    end
+    
     def require_no_user
       logger.debug "ApplicationController::require_no_user"
       if current_user

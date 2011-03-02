@@ -1,19 +1,14 @@
 class CheckpointsController < ApplicationController
-  
-  before_filter :require_user
-  # GET /checkpoints
-  # GET /checkpoints.xml
-  def index
-    @checkpoints = Checkpoint.all
+  before_filter :require_admin, :except => [:index]
 
+  def index
+    @checkpoints = Checkpoint.all 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.xml  { render :xml => @checkpoints }
     end
   end
 
-  # GET /checkpoints/1
-  # GET /checkpoints/1.xml
   def show
     @checkpoint = Checkpoint.find(params[:id])
 
@@ -23,8 +18,6 @@ class CheckpointsController < ApplicationController
     end
   end
 
-  # GET /checkpoints/new
-  # GET /checkpoints/new.xml
   def new
     @checkpoint = Checkpoint.new
 
@@ -34,13 +27,10 @@ class CheckpointsController < ApplicationController
     end
   end
 
-  # GET /checkpoints/1/edit
   def edit
     @checkpoint = Checkpoint.find(params[:id])
   end
-
-  # POST /checkpoints
-  # POST /checkpoints.xml
+  
   def create
     @checkpoint = Checkpoint.new(params[:checkpoint])
 
@@ -55,8 +45,6 @@ class CheckpointsController < ApplicationController
     end
   end
 
-  # PUT /checkpoints/1
-  # PUT /checkpoints/1.xml
   def update
     @checkpoint = Checkpoint.find(params[:id])
 
@@ -71,8 +59,6 @@ class CheckpointsController < ApplicationController
     end
   end
 
-  # DELETE /checkpoints/1
-  # DELETE /checkpoints/1.xml
   def destroy
     @checkpoint = Checkpoint.find(params[:id])
     @checkpoint.destroy
