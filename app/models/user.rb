@@ -4,9 +4,12 @@ class User < ActiveRecord::Base
   
   def self.create_all
     User.destroy_all
-    Checkpoint.all.each do |checkpoint|
-      user = User.create(:login => checkpoint.location.gsub!(/'/, ""), :password => 'chisecret', :password_confirmation => 'chisecret', :checkpoint_id => checkpoint.id )
-      puts user.login
+    Checkpoint.find_each do |checkpoint|
+      location = checkpoint.location
+      if location =~ /'/
+        location.gsub!(/'/, "")
+      end
+      user = User.create!(:login => location, :password => 'dynasty', :password_confirmation => 'dynasty', :checkpoint_id => checkpoint.id )
     end
     User.create(:login => 'admin', :password => 'nimda', :password_confirmation => 'nimda')
   end

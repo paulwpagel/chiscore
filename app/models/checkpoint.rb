@@ -6,4 +6,8 @@ class Checkpoint < ActiveRecord::Base
         Checkpoint.create!(:location => location)
       end
   end
+  
+  def self.start
+    return Checkpoint.find_by_location("Start")
+  end
 end
