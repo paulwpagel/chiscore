@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Team do
   before(:each) do
     Team.destroy_all and Checkpoint.destroy_all and TeamCheckin.destroy_all
-    @team = Team.create!(:name => "team", :route => "yellow")
+    @team = Team.create!(:name => "team", :route => "one")
     @checkpoint = Checkpoint.create!(:location => "Start")
     @checkpoint2 = Checkpoint.create!(:location => "Finish")
   end
@@ -31,7 +31,7 @@ describe Team do
   
   it "has a finish time" do
     Checkpoint.destroy_all
-    Routes::yellow.each do |location|
+    Routes::one.each do |location|
       checkpoint = Checkpoint.create!(:location => location)
       TeamCheckin.create(:team => @team, :checkpoint => checkpoint)
     end

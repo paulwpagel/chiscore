@@ -1,35 +1,37 @@
+require "checkpoints"
 module Routes
-  
-  def self.yellow
-    return ["Start", "Cobra", "Happy Village", "Flat Iron", "Phyllis's", "Five Star", "Finish"]
+  include Checkpoints
+
+  def self.one
+    return [START, COBRA, HAPPY_TOWN, FLAT_IRON, PHYLLIS, FIVE_STAR, FINISH]
   end
   
-  def self.gray
-    return ["Start", "Phyllis's", "Darkroom", "Five Star", "Cobra", "Twisted Spoke", "Finish"]    
+  def self.two
+    return [START, PHYLLIS, DARKROOM, FIVE_STAR, COBRA, TWISTED_SPOKE, FINISH]    
   end
   
-  def self.red
-    return ["Start", "Five Star", "Nick's", "Club Lucky", "Flat Iron", "Happy Village", "Finish"]    
+  def self.three
+    return [START, COBRA, NICKS, CLUB_LUCKY, FLAT_IRON, HAPPY_TOWN, FINISH]    
   end
   
-  def self.blue
-    return ["Start", "Mahoney's", "Happy Village", "Darkroom", "Five Star", "Twisted Spoke", "Finish"]    
+  def self.four
+    return [START, DARKROOM,	FLAT_IRON, CLUB_LUCKY, PHYLLIS, MAHONEYS,	FINISH]
   end
   
-  def self.green
-    return ["Start", "Happy Village", "Club Lucky", "Phyllis's", "Darkroom", "Cobra", "Finish"]    
+  def self.five
+    return [START, MAHONEYS, HAPPY_TOWN, DARKROOM, FIVE_STAR, TWISTED_SPOKE, FINISH]    
   end
   
-  def self.light_blue
-    return ["Start","Twisted Spoke",	"Mahoney's",	"Nick's",	"Happy Village",	"Five Star",	"Finish"]    
+  def self.six
+    return [START, HAPPY_TOWN, CLUB_LUCKY, PHYLLIS, DARKROOM, COBRA, FINISH]    
   end
   
-  def self.white
-    return ["Start",	"Five Star",	"Phyllis's",	"Nick's",	"Twisted Spoke",	"Cobra",	"Finish"]
+  def self.seven
+    return [START, TWISTED_SPOKE,	MAHONEYS,	NICKS, HAPPY_TOWN, FIVE_STAR,	FINISH]    
   end
   
-  def self.pink
-    return ["Start",	"Darkroom",	"Flat Iron",	"Club Lucky","Phyllis's","Mahoney's"	,	"Finish"]
+  def self.eight
+    return [START, FIVE_STAR, PHYLLIS, NICKS,	TWISTED_SPOKE, COBRA, FINISH]
   end
-  
+
 end

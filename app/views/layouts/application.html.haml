@@ -20,13 +20,14 @@
       #nav_container
         / =image_tag("chi-star.gif", :class => 'image-left')        
         %ul#nav
-          - if current_user.present?
-            %li= link_to 'Log Out', :logout, :title => 'Log Out', :class => 'dark-bg', :role => 'button'           
           -if current_user.present? && current_user.admin?       
             %li= link_to 'home', root_path
             %li= link_to 'teams', teams_path
             %li= link_to 'checkpoints', checkpoints_path
             %li= link_to 'totals', totals_path
+          - if current_user.present?
+            %li= link_to 'Log Out', :logout, :title => 'Log Out', :class => 'dark-bg', :role => 'button'           
+            
         / =image_tag("chi-star.gif", :class => 'image-right')       
         
       .main

@@ -2,8 +2,8 @@
   = link_to "Start", start_race_path
 
 
-- ["yellow", "gray", "red", "blue", "green", "light_blue", "white", "pink"].each do |route|
-  %h1=route.try(:capitalize).try(:gsub, /_/, " ")
+- ["one", "two", "three", "four", "five", "six", "seven", "eight"].each do |route|
+  %h1=route.try(:capitalize)
   %table{:class => "time", :width => "100%"}
     %tr
       %th.team Name
