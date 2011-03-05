@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :checkpoint  
   
   def self.creation_for(login, location)
-    User.create!(:login => login, :password => 'Dynasty', :password_confirmation => 'Dynasty', :checkpoint_id => Checkpoint.find_by_location(location) )
+    User.create!(:login => login, :password => 'Dynasty', :password_confirmation => 'Dynasty', :checkpoint_id => Checkpoint.find_by_location(location).id )
   end
   
   def self.create_all
