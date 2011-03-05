@@ -3,21 +3,32 @@ class Team < ActiveRecord::Base
   include TimeHelper
   has_many :team_checkins
   
+  def self.total_times
+    return all.sort_by {|team| team.total_time }
+  end
+  
+  def self.number_map(number)
+    return "one" if number.to_s == "1"
+    return "two" if number.to_s == "2"
+    return "three" if number.to_s == "3"
+    return "four" if number.to_s == "4"
+    return "five" if number.to_s == "5"
+    return "six" if number.to_s == "6"
+    return "seven" if number.to_s == "7"
+    return "eight" if number.to_s == "8"
+  end
+  
   def self.create_all
     Team.destroy_all
     CSV.foreach(File.expand_path(File.join(Rails.root, "data_sources", "teams.csv"))) do |row|
       begin
-        Team.create!(:number => row[0], :route => row[1], :name => row[2])
+        Team.create!(:number => row[0], :route => number_map(row[1]), :name => row[2])
       rescue Exception => e
-        errors_on << user_data["login"]
-        puts
         puts "row[0]: #{row[0]}"
-        puts e
+        puts e.message
         puts e.backtrace
-        puts
       end
     end
-
   end
   
   def checkin_time_for(location)

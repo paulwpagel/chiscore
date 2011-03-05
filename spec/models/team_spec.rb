@@ -60,4 +60,5 @@ describe Team do
     Team.create_all
     Team.count.should == 154
   end
+  
 end
