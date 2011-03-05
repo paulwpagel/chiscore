@@ -54,4 +54,10 @@ describe Team do
     TeamCheckin.create(:team => @team, :checkpoint => @checkpoint, :checkout => Time.now)
     @team.should_not be_checked_in
   end
+  
+  it "creates all" do
+    Team.destroy_all
+    Team.create_all
+    Team.count.should == 154
+  end
 end

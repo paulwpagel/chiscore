@@ -1,6 +1,24 @@
+require "csv"
 class Team < ActiveRecord::Base
   include TimeHelper
   has_many :team_checkins
+  
+  def self.create_all
+    Team.destroy_all
+    CSV.foreach(File.expand_path(File.join(Rails.root, "data_sources", "teams.csv"))) do |row|
+      begin
+        Team.create!(:number => row[0], :route => row[1], :name => row[2])
+      rescue Exception => e
+        errors_on << user_data["login"]
+        puts
+        puts "row[0]: #{row[0]}"
+        puts e
+        puts e.backtrace
+        puts
+      end
+    end
+
+  end
   
   def checkin_time_for(location)
     checkin_for(location).try(:created_at).try(:strftime, "%H:%M:%S")
