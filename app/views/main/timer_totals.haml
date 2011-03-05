@@ -1,0 +1,8 @@
+%table{:class => "time", :width => "100%"}
+  %tr
+    %th.team Name
+    %th.total Total
+  - Team.total_times.each do |team|
+    %tr
+      %td.name=team.name
+      %td.total=in_minutes(team.total_time)

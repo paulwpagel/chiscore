@@ -16,6 +16,7 @@ Chiscore::Application.routes.draw do
   match "main/checkin" => "main#checkin", :as => "checkin"
   match "main/checkins" => "main#checkins", :as => "checkins"
   match "main/totals" => "main#totals", :as => 'totals'
+  match "main/timer_totals" => "main#timer_totals", :as => 'timer_totals'
   match "main/reload_checkins" => "main#reload_checkins"
   match "main/start_race" => "main#start_race", :as => "start_race"
   
