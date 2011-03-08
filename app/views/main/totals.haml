@@ -7,12 +7,14 @@
   %table{:class => "time", :width => "100%"}
     %tr
       %th.team Name
+      %th.team Number
       - Routes.send(route).each do |location|
         %th.location=location
       %th.total Total
     - Team.find(:all, :conditions => {:route => route}).each do |team|
       %tr
         %td.name=team.name
+        %td.name=team.number
         - Routes.send(route).each do |location|
           %td.location=team.checkin_time_for(location)        
         %td.total=in_minutes(team.total_time)
