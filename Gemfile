@@ -39,4 +39,6 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'launchy'
 	gem 'cucumber'
+  gem 'fuubar' # shows bar graph during tests
+  gem "shoulda", "~> 2.11.3" #shoulda allows for specific testing syntax
 end

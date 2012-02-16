@@ -8,8 +8,8 @@ Chiscore::Application.routes.draw do
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
-  
-  
+
+
   match "main/checkout/:team_checkin_id" => "main#checkout", :as => "checkout"
   match "main/set_checkpoint" => "main#set_checkpoint"
   match "main/change_checkpoint" => "main#change_checkpoint", :as => "change_checkpoint"
@@ -19,7 +19,7 @@ Chiscore::Application.routes.draw do
   match "main/timer_totals" => "main#timer_totals", :as => 'timer_totals'
   match "main/reload_checkins" => "main#reload_checkins"
   match "main/start_race" => "main#start_race", :as => "start_race"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
