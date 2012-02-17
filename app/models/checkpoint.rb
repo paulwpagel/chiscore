@@ -13,4 +13,7 @@ class Checkpoint < ActiveRecord::Base
     return Checkpoint.find_by_location(Checkpoints::START)
   end
 
+  def prize_categories_csv
+    self.prize_categories.map(&:name).join(", ")
+  end
 end

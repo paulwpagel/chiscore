@@ -5,6 +5,7 @@ Chiscore::Application.routes.draw do
   resources :teams
   resources :team_checkins
   resources :user_sessions
+  resources :prize_categories
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout

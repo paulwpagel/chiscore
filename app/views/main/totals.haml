@@ -1,4 +1,4 @@
-- if !TeamCheckin.find_by_checkpoint_id(Checkpoint.start.id).present?
+- if !TeamCheckin.find_by_checkpoint_id(Checkpoint).present?
   = link_to "Start", start_race_path
 
 
@@ -16,5 +16,5 @@
         %td.name=team.name
         %td.name=team.number
         - Routes.send(route).each do |location|
-          %td.location=team.checkin_time_for(location)        
+          %td.location=team.checkin_time_for(location)
         %td.total=in_minutes(team.total_time)

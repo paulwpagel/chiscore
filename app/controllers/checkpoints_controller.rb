@@ -30,7 +30,7 @@ class CheckpointsController < ApplicationController
   def edit
     @checkpoint = Checkpoint.find(params[:id])
   end
-  
+
   def create
     @checkpoint = Checkpoint.new(params[:checkpoint])
 

@@ -25,6 +25,7 @@
             %li= link_to 'home', root_path
             %li= link_to 'teams', teams_path
             %li= link_to 'checkpoints', checkpoints_path
+            %li= link_to 'prizes', prize_categories_path
             %li= link_to 'totals', totals_path
           - if current_user.present?
             %li= link_to 'Log Out', :logout, :title => 'Log Out', :class => 'dark-bg', :role => 'button'           

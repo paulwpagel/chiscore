@@ -9,6 +9,7 @@ class MainController < ApplicationController
       session[:current_checkpoint_id] = current_user.checkpoint.id
     end
     @team_checkin = TeamCheckin.new
+    # @team = Team.find(:params[@team.number])
   end
 
   def set_checkpoint

@@ -8,4 +8,7 @@
 
 User.delete_all
 User.create(:login => 'admin', :password => 'sample', :password_confirmation => 'sample')
-User.create(:login => 'john', :password => 'sample', :password_confirmation => 'sample')
+User.create(:login => 'brian', :password => 'sample', :password_confirmation => 'sample', 
+            :checkpoint_id => 1)
+Checkpoint.create(:location => 'the bob inn')
+PrizeCategory.create(:name => 'Best Art Cart')
