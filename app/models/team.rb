@@ -2,7 +2,8 @@ require "csv"
 class Team < ActiveRecord::Base
   include TimeHelper
   has_many :team_checkins
-  
+  has_many :votes
+
   def self.total_times
     return all.sort_by {|team| team.total_time }
   end

@@ -6,7 +6,7 @@
     = javascript_include_tag "jquery.js", "jquery.rails.js", "jquery-ui.js"
     = javascript_include_tag "application.js"
     = yield :javascript
-    = csrf_meta_tag     
+    = csrf_meta_tag
   %body
     #container
       #header
@@ -19,19 +19,16 @@
           =image_tag("chi-star.gif", :class => 'image-right')
           =image_tag("chi-star.gif", :class => 'image-right')
       #nav_container
-        / =image_tag("chi-star.gif", :class => 'image-left')        
         %ul#nav
-          -if current_user.present? && current_user.admin?       
+          -if current_user.present? && current_user.admin?
             %li= link_to 'home', root_path
             %li= link_to 'teams', teams_path
             %li= link_to 'checkpoints', checkpoints_path
-            %li= link_to 'prizes', prize_categories_path
             %li= link_to 'totals', totals_path
           - if current_user.present?
-            %li= link_to 'Log Out', :logout, :title => 'Log Out', :class => 'dark-bg', :role => 'button'           
-            
-        / =image_tag("chi-star.gif", :class => 'image-right')       
-        
+            %li= link_to 'prizes', prize_categories_path
+            %li= link_to 'Log Out', :logout, :title => 'Log Out', :class => 'dark-bg', :role => 'button'
+
       .main
         .content
           %p.notice=flash[:notice]

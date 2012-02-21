@@ -11,7 +11,7 @@
         %th
       - checkins.each do |checkin|
         %tr
-          %td= checkin.team.number  
+          %td= checkin.team.number
           %td= checkin.team.name
           %td= checkin.time_left
           - if checkin.checkout.nil?
