@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Team</th>
+  </tr>
+  <% @prize_categories.each do |prize_category| %>
+    <tr class="<%= cycle("odd", "even") %>">
+      <td><%= prize_category.name %></td>
+      <td>
+        <%= form_for [prize_category, Vote.new] do |f| %>
+          <%= f.collection_select :team_id, Team.all, :id, :name, 
+            { :selected =>  prize_category.votes.where(:user_id => current_user.id).first.try(:team_id),
+              :prompt => true } %>
+          <%= f.hidden_field :prize_category_id, :value => prize_category.id %>
+          <%= f.submit %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

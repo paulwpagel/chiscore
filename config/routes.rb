@@ -5,8 +5,9 @@ Chiscore::Application.routes.draw do
   resources :teams
   resources :team_checkins
   resources :user_sessions
-  resources :prize_categories
-  resources :votes
+  resources :prize_categories do
+    resources :votes
+  end
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
