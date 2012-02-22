@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221192949) do
+ActiveRecord::Schema.define(:version => 20120222013325) do
 
   create_table "checkpoints", :force => true do |t|
     t.string   "location"
@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(:version => 20120221192949) do
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "count",      :default => 0
+    t.integer  "user_id"
+    t.integer  "team_id"
+    t.integer  "prize_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

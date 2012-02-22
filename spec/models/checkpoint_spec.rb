@@ -28,9 +28,8 @@ describe Checkpoint do
     let(:name1)                 { "Best in show" }
     let(:name2)                 { "Worst in show" }
 
-    it 'returns the list of prize categories' do
+    it "returns the list of prize categories" do
       checkpoint.prize_categories += prize_categories
-
       checkpoint.prize_categories_csv.should == prize_categories_csv
     end
 
