@@ -2,46 +2,34 @@ require 'spec_helper'
 
 describe VotesController do
 
-  def mock_vote(stubs={})
-    @mock_vote ||= mock_model(Vote, stubs).as_null_object
+
+  let(:vote_params) do {'user_id' => user.id, 'team_id' => team.id } end
+  let(:prize_category) { PrizeCategory.create!(:name => "Biggest Loser") }
+  let(:team) { Team.create!(:name => "Whatever") }
+  let(:user) { User.create!(:login => "testuser", :password => "password", :password_confirmation => "password") }
+
+  before do
+    Vote.destroy_all
+    controller.stub(:current_user).and_return(user)
   end
 
-  describe "GET new" do
-    it "assigns a new checkpoint as @checkpoint" do
-      Vote.stub(:new) { mock_vote }
-      get :new
-      assigns(:vote).should be(mock_vote)
-    end
+  it "#create finds the prize_category" do
+    post :create, :prize_category_id => prize_category.id, :vote => vote_params
+    assigns(:prize_category).should == prize_category
   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "assigns a newly created team as @team" do
-        Vote.stub(:new).with({'these' => 'params'}) { mock_vote(:save => true) }
-        post :create, :vote => {'these' => 'params'}
-        assigns(:vote).should be(mock_vote)
-      end
-
-      it "redirects to the created vote" do
-        Vote.stub(:new) { mock_vote(:save => true) }
-        post :create, :vote => {}
-        response.should redirect_to(vote_url(mock_vote))
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved vote as @vote" do
-        Vote.stub(:new).with({'these' => 'params'}) { mock_vote(:save => false) }
-        post :create, :vote => {'these' => 'params'}
-        assigns(:vote).should be(mock_vote)
-      end
-
-      it "re-renders the 'new' template" do
-        Vote.stub(:new) { mock_vote(:save => false) }
-        post :create, :vote => {}
-        response.should render_template("new")
-      end
-    end
+  it "#create creates a new vote" do
+    Vote.should_receive(:create!).with(vote_params).and_return(true)
+    post :create, :prize_category_id => prize_category.id, :vote => vote_params
   end
 
+  it "#create creates a new vote" do
+    post :create, :prize_category_id => prize_category.id, :vote => vote_params
+    response.should redirect_to prize_categories_path
+  end
+
+  it "allows new ones to be created" do
+    Vote.should_receive(:new)
+    get :new, :prize_category_id => prize_category.id
+  end
 end

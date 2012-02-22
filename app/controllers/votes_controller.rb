@@ -10,16 +10,14 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.new(params[:team])
-
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to(prize_categories_path, :notice => 'Vote was successfully cast.') }
-        format.xml  { render :xml => @vote, :status => :created, :location => @vote }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
-      end
+    @prize_category = PrizeCategory.find(params[:prize_category_id])
+    votes = @prize_category.votes.where(:user_id => current_user.id)
+    if votes.any?
+      votes.first.update_attributes(params[:vote])
+      redirect_to prize_categories_path, :notice => "Changed your vote. Thanks."
+    else
+      @vote = Vote.create!(params[:vote].merge('user_id' => current_user.id))
+      redirect_to prize_categories_path, :notice => "Thanks for voting, now get back to work"
     end
   end
 end

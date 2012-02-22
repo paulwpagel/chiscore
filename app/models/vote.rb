@@ -1,5 +1,7 @@
 class Vote < ActiveRecord::Base
-  has_one :team
-  has_one :user
+  belongs_to :user
   belongs_to :prize_category
+  belongs_to :team
+
+  validates_presence_of :team
 end

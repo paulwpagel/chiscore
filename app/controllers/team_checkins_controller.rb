@@ -1,5 +1,5 @@
 class TeamCheckinsController < ApplicationController
-  
+
   def destroy
     @team_checkin = TeamCheckin.find(params[:id])
     @team_checkin.destroy
