@@ -1,0 +1,10 @@
+%h1.sub_heading Edit Prize Category
+
+-form_for @prize_category do |f|
+  = f.error_messages
+  = render :partial => "form", :locals => {:form => f}
+
+  %p
+    = f.submit 'Update'
+
+= link_to 'Show', prize_category_path(@prize_category)

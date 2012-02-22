@@ -1,0 +1,8 @@
+%h1.sub_heading Cast a Vote
+
+- form_for @vote do |form|
+  = form.error_messages
+  = render :partial => 'form', :locals => { :form => form }
+  %p
+    = form.submit 'Cast Vote'
+

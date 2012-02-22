@@ -1,0 +1,8 @@
+%table
+  %tr
+    %td Name: 
+    %td= @prize_category.name
+
+%br
+= link_to 'Edit', edit_prize_category_path(@prize_category)
+= link_to 'All', prize_categories_path
