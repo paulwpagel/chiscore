@@ -44,6 +44,15 @@ describe TeamCheckin do
     TeamCheckin.active(@checkpoint).should_not include(checkin3)    
     TeamCheckin.active(@checkpoint).should_not include(checkin4)    
   end
+
+  it "checks out a team" do
+    checkin1 = TeamCheckin.create!(:created_at => (Time.now - 20.minutes) + 5.minutes, :checkpoint_id => @checkpoint.id, :team => @team1)
+    checkin2 = TeamCheckin.create!(:created_at => (Time.now - 20.minutes) + 19.minutes, :checkpoint_id => @checkpoint.id, :team => @team2)
+    checkin1.checkout!
+
+    checkin1.checkout.should_not be_nil
+    checkin2.checkout.should be_nil
+  end
   
   
 end

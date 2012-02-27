@@ -55,12 +55,13 @@ class MainController < ApplicationController
   end
 
   def reload_checkins
+    TeamCheckin.expired.each { |c| c.checkout }
     render :partial => 'main/checkin_lists'
   end
 
   def checkout
     checkin = TeamCheckin.find(params[:team_checkin_id])
-    checkin.update_attribute(:checkout, Time.now) 
+    checkin.checkout!
     respond_to do |format|
       format.html {redirect_to(:controller => :main, :action => :index)}
     end
