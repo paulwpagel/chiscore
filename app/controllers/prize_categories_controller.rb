@@ -61,4 +61,8 @@ class PrizeCategoriesController < ApplicationController
     end
   end
 
+  def tally
+    @tally = Vote.tally_all
+  end
+
 end

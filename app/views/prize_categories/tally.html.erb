@@ -1,0 +1,11 @@
+<% @tally.each do |tally| %>
+  <h1><%= tally[:category].name %></h1>
+  <table>
+    <% tally[:votes].each do |vote_tally| %>
+      <tr class='<%= cycle("odd", "even") %>'>
+        <td><%= vote_tally[:team].name %></td>
+        <td><%= vote_tally[:count]%></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

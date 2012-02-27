@@ -6,6 +6,9 @@ Chiscore::Application.routes.draw do
   resources :team_checkins
   resources :user_sessions
   resources :prize_categories do
+    collection do
+      get :tally
+    end
     resources :votes
   end
 

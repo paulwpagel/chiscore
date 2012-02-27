@@ -1,15 +1,14 @@
 module Checkpoints  
-  START             = "Start" unless defined?(START)
-  COBRA             = "Cobra" unless defined?(COBRA)
-  HAPPY_TOWN        = "Happy Village/Innertown" unless defined?(HAPPY_TOWN)
-  FLAT_IRON         = "Flat Iron" unless defined?(FLAT_IRON)
-  PHYLLIS           = "Phyllis" unless defined?(PHYLLIS)
-  FIVE_STAR         = "Five Star" unless defined?(FIVE_STAR)
-  TWISTED_SPOKE     = "Twisted Spoke" unless defined?(TWISTED_SPOKE)
+  MINIMONKS         = "Start" unless defined?(START)
+  PHYLLIS           = "Phyliss's" unless defined?(PHYLISS)
+  COBRA_LOUNGE      = "Cobra Lounge" unless defined?(COBRA_LOUNGE)
   NICKS             = "Nicks" unless defined?(NICKS)
+  ROOTS             = "Roots" unless defined?(ROOTS)
   DARKROOM          = "Darkroom" unless defined?(DARKROOM)
+  FIFTYFIFTY        = "50/50" unless defined?(FIFTYFIFTY)
   MAHONEYS          = "Mahoneys" unless defined?(MAHONEYS)
-  CLUB_LUCKY        = "Club Lucky" unless defined?(CLUB_LUCKY)
+  FIVE_STAR         = "Five Star" unless defined?(FIVE_STAR)
+  BOTTOM_LOUNGE     = "Bottom Lounge" unless defined?(BOTTOM_LOUNGE)
   FINISH            = "Finish" unless defined?(FINISH)
-  ALL = [START, COBRA, HAPPY_TOWN, FLAT_IRON, PHYLLIS, FIVE_STAR, TWISTED_SPOKE, NICKS, DARKROOM, MAHONEYS, CLUB_LUCKY, FINISH]
+  ALL = [MINIMONKS, PHYLLIS, COBRA_LOUNGE, NICKS, ROOTS, DARKROOM, FIFTYFIFTY, MAHONEYS, FIVE_STAR, BOTTOM_LOUNGE, FINISH]
 end

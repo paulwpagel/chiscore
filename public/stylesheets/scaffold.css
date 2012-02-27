@@ -105,8 +105,6 @@ div#nav_container {
 
 
 ul#nav {
-	position: absolute;
-	left: 540px;
 	display: inline;
   margin: 0px;
   padding: 0px;

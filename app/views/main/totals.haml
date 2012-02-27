@@ -1,8 +1,8 @@
-- if !TeamCheckin.find_by_checkpoint_id(Checkpoint).present?
+- if !TeamCheckin.all.any?
   = link_to "Start", start_race_path
 
 
-- ["one", "two", "three", "four", "five", "six", "seven", "eight"].each do |route|
+- ["one", "two"].each do |route|
   %h1=route.try(:capitalize)
   %table{:class => "time", :width => "100%"}
     %tr
