@@ -1,4 +1,4 @@
-module Checkpoints  
+module Checkpoints
   MINIMONKS         = "Start" unless defined?(START)
   PHYLLIS           = "Phyliss's" unless defined?(PHYLISS)
   COBRA_LOUNGE      = "Cobra Lounge" unless defined?(COBRA_LOUNGE)

@@ -8,7 +8,7 @@ describe Checkpoint do
 
   it "creates all" do
     Checkpoint.create_all
-    Checkpoint.count.should == 12
+    Checkpoint.count.should == 11
   end
 
   it "finds the start" do

@@ -10,7 +10,7 @@ class Checkpoint < ActiveRecord::Base
   end
 
   def self.start
-    return Checkpoint.find_by_location(Checkpoints::START)
+    return Checkpoint.find_by_location("Start")
   end
 
   def prize_categories_csv

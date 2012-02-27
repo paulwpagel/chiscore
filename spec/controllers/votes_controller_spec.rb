@@ -13,23 +13,25 @@ describe VotesController do
     controller.stub(:current_user).and_return(user)
   end
 
-  it "#create finds the prize_category" do
-    post :create, :prize_category_id => prize_category.id, :vote => vote_params
-    assigns(:prize_category).should == prize_category
+  describe "#create" do
+    it "#create finds the prize_category" do
+      post :create, :prize_category_id => prize_category.id, :vote => vote_params
+
+      assigns(:prize_category).should == prize_category
+    end
+
+    it "#create creates a new vote" do
+      post :create, :prize_category_id => prize_category.id, :vote => vote_params
+
+      response.should redirect_to prize_categories_path
+    end
   end
 
-  it "#create creates a new vote" do
-    Vote.should_receive(:create!).with(vote_params).and_return(true)
-    post :create, :prize_category_id => prize_category.id, :vote => vote_params
-  end
+  describe "#new" do
+    it "allows new ones to be created" do
+      Vote.should_receive(:new)
 
-  it "#create creates a new vote" do
-    post :create, :prize_category_id => prize_category.id, :vote => vote_params
-    response.should redirect_to prize_categories_path
-  end
-
-  it "allows new ones to be created" do
-    Vote.should_receive(:new)
-    get :new, :prize_category_id => prize_category.id
+      get :new, :prize_category_id => prize_category.id
+    end
   end
 end
