@@ -22,4 +22,5 @@ group :development, :test do
 	gem 'launchy'
 	gem 'cucumber'
   gem 'fuubar' # shows bar graph during tests
+  gem 'timecop'
 end

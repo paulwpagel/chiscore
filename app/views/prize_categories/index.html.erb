@@ -2,24 +2,24 @@
   <p><%= link_to "Add Prize Category", new_prize_category_path %> | <%= link_to "Totals", tally_prize_categories_path %></p>
 <% end %>
 
+<%= form_tag cast_votes_prize_categories_path, :method => :post do |f| %>
 <table>
   <tr>
     <th>Category</th>
-      <th>Team</th>
+    <th>Team</th>
   </tr>
   <% @prize_categories.each do |prize_category| %>
     <tr class="<%= cycle("odd", "even") %>">
       <td><%= prize_category.name %></td>
 
-      <td>
-        <%= form_for [prize_category, Vote.new] do |f| %>
-          <%= f.collection_select :team_id, Team.all, :id, :name, 
-            { :selected =>  prize_category.votes.where(:user_id => current_user.id).first.try(:team_id),
-              :prompt => true } %>
-              <%= f.hidden_field :prize_category_id, :value => prize_category.id %>
-              <%= f.submit "Cast Vote"%>
-            <% end %>
-          <% end %>
+      <%= fields_for "prize_categories[#{prize_category.id}]", Vote.new do |fields| %>
+      <td><%= fields.collection_select :team_id, Team.all, :id, :name,
+        { :selected =>  prize_category.votes.where(:user_id => current_user.id).first.try(:team_id),
+          :prompt => "Oy!  You need to vote for this!"} %>
         </td>
-      </tr>
-    </table>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <%= submit_tag "Cast My Ballot"  %>
+<% end %>

@@ -15,6 +15,6 @@
           %td= checkin.team.name
           %td= checkin.time_left
           - if checkin.checkout.nil?
-            %td.actions= link_to 'checkout', checkout_path(checkin) 
+            %td.actions= link_to 'checkout', checkout_path(checkin)
           -else
           %td.actions= link_to 'delete', team_checkin_path(checkin), :confirm => 'CAREFUL.  You should only use this if you checked in the wrong team!  There is no turning back and you can royally fuck over a team.', :method => :delete

@@ -65,4 +65,24 @@ class PrizeCategoriesController < ApplicationController
     @tally = Vote.tally_all
   end
 
+  def cast_votes
+    begin
+    params[:prize_categories].each do |prize_category_id, team_params|
+      category = PrizeCategory.find(prize_category_id)
+      vote_params = { :team_id => team_params[:team_id], :prize_category_id => prize_category_id }
+      vote_params = vote_params.merge('user_id' => current_user.id)
+      vote = category.votes.where(:user_id => current_user.id).first
+
+      if vote.nil?
+        Vote.create(vote_params)
+      else
+        vote.update_attributes(vote_params)
+      end
+    end
+
+    rescue
+      redirect_to prize_categories_path, :notice => "Whoops, try again."
+    end
+      redirect_to prize_categories_path, :notice => "Alright, thanks for voting."
+  end
 end

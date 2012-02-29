@@ -29,4 +29,15 @@ describe PrizeCategoriesController do
       assigns(:tally).should == tally
     end
   end
+
+  # let(:prize_category) { PrizeCategory.new(name: "Art Cart of the Decade") }
+  # let(:prize_category_2) { PrizeCategory.new(name: "Slow Cart of the Decade") }
+
+  # let(:team) { Team.new(name: "Killas", number: 1) }
+
+  # it "#cast_votes creates multiple votes with appropriate info" do
+  #   Vote.should_receive(:create).with(prize_category.id, prize_category_2.id) .exactly(2).times
+
+  #   post :cast_votes, prize_categories: {vote: {team_id: team.id, prize_category_id: prize_category.id}, vote: {team_id: team.id, prize_category_id: prize_category_2.id}}
+  # end
 end

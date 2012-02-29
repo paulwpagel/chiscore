@@ -8,8 +8,10 @@ Chiscore::Application.routes.draw do
   resources :prize_categories do
     collection do
       get :tally
+      post :cast_votes
     end
-    resources :votes
+    resources :votes do
+    end
   end
 
   match 'login' => "user_sessions#new",      :as => :login
