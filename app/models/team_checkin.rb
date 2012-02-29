@@ -22,6 +22,15 @@ class TeamCheckin < ActiveRecord::Base
 
   def time_left
     return in_minutes(((created_at + TWENTY_MINUTES) - Time.now).to_i)
+<<<<<<< HEAD
   end
 
+=======
+  end  
+
+  def checkout!
+    update_attribute(:checkout, Time.now)
+  end
+  
+>>>>>>> be13ed757ebdfa9a35e980945731992d9e58315d
 end
