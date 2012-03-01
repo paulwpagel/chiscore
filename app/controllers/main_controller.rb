@@ -55,7 +55,7 @@ class MainController < ApplicationController
   end
 
   def reload_checkins
-    TeamCheckin.expired.each { |c| c.checkout }
+    TeamCheckin.all_expired.each { |c| c.checkout! }
     render :partial => 'main/checkin_lists'
   end
 
