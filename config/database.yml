@@ -16,7 +16,7 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: postgres
+  adapter: postgresql
   host: localhost
   user: chiscore
   password: AlaskanHusky
