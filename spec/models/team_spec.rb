@@ -58,7 +58,7 @@ describe Team do
   it "creates all" do
     Team.destroy_all
     Team.create_all
-    Team.count.should == 154
+    Team.count.should == 160
   end
   
 end

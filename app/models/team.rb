@@ -16,13 +16,12 @@ class Team < ActiveRecord::Base
     return "five" if number.to_s == "5"
     return "six" if number.to_s == "6"
     return "seven" if number.to_s == "7"
-    return "eight" if number.to_s == "8"
   end
 
   def self.create_all
     Team.destroy_all
     CSV.foreach(File.expand_path(File.join(Rails.root, "data_sources", "2012.csv"))) do |row|
-      num = [1,2].sample
+      num = (1..8).to_a.sample
       begin
         Team.create!(:number => row[0], :route => number_map(num), :name => row[1])
       rescue Exception => e
