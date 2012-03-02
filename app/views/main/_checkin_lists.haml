@@ -1,8 +1,8 @@
 %h2 Waiting at the bar
-= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.active(session[:current_checkpoint_id]), :title => "Time to checkout"}
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.active(session[:current_checkpoint_id]), :title => "Time to checkout", :show_time => true}
 
 %h2 Almost ready to go
-= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.warning(session[:current_checkpoint_id]), :title => "Time to checkout"}
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.warning(session[:current_checkpoint_id]), :title => "Time to checkout", :show_time => true}
 
 %h2 Get the fuck outta here
-= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.expired(session[:current_checkpoint_id]), :title => "Time expired"}
+= render :partial => 'main/checkins', :locals => {:checkins => TeamCheckin.expired(session[:current_checkpoint_id]), :title => "Time expired", :show_time => false}

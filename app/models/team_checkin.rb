@@ -12,7 +12,7 @@ class TeamCheckin < ActiveRecord::Base
     { :conditions => ["checkpoint_id = ? AND (created_at <= ? OR checkout IS NOT NULL)", checkpoint_id, (Time.now - 20.minutes)] }
   }
 
-  scope :all_expired, where('checkout IS NOT NULL')
+  scope :all_expired, where('checkout IS NOT NULL OR created_at <= ?', Time.now - 20.minutes)
 
   scope :warning, lambda { |checkpoint_id|
     { :conditions => ["checkpoint_id = ? AND created_at >= ? and created_at <= ?", checkpoint_id, (Time.now - 20.minutes), (Time.now - 19.minutes)] }

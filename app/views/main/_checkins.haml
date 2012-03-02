@@ -13,7 +13,7 @@
         %tr
           %td= checkin.team.number
           %td= checkin.team.name
-          %td= checkin.time_left
+          %td= checkin.time_left if show_time
           - if checkin.checkout.nil?
             %td.actions= link_to 'checkout', checkout_path(checkin), :confirm => "If you're checking out a team early, make sure you know what you're doing... seriously. Think about this carefully."
           -else
