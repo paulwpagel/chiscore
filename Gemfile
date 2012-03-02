@@ -5,6 +5,7 @@ gem 'rails', '3.0.1'
 gem "haml"
 gem "authlogic"
 gem "rails3-generators"
+gem "capistrano"
 
 group :production do
   gem 'pg'
