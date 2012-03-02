@@ -1,11 +1,11 @@
 set :application, "chiscore"
 set :repository,  "git@github.com:paulwpagel/chiscore.git"
 set :scm, :git
-set :deploy_to, "//srv/#{application}"
-set :user, "/home/chiscore/app"
+set :deploy_to, "/home/chiscore/app"
+set :user, "chiscore"
 set :use_sudo, false
 
-set :location, "http://chiscore.pratt.io"
+set :location, "chiscore.pratt.io"
 role :web, location
 role :app, location
 role :db, location
