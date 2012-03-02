@@ -10,7 +10,8 @@
   %body
     #container
       #header
-        Help?  Call / Text Brian at 740.417.6435
+        -if current_user.present?
+          Help?  Call / Text Brian at 740.417.6435
         .flag-top
         .header-content
           =image_tag("chi-star.gif", :class => 'image-left')
