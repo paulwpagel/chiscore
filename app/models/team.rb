@@ -20,10 +20,9 @@ class Team < ActiveRecord::Base
 
   def self.create_all
     Team.destroy_all
-    CSV.foreach(File.expand_path(File.join(Rails.root, "data_sources", "2012.csv"))) do |row|
-      num = (1..8).to_a.sample
+    CSV.foreach(File.expand_path(File.join(Rails.root, "data_sources", "2012_with_routes.csv"))) do |row|
       begin
-        Team.create!(:number => row[0], :route => number_map(num), :name => row[1])
+        Team.create!(:number => row[0], :route => number_map(row[1]), :name => row[2])
       rescue Exception => e
         puts "row[0]: #{row[0]}"
         puts e.message
